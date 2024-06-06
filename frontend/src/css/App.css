@@ -1,5 +1,13 @@
+@font-face {
+    font-family: 'e-Ukraine Head';
+    src: url('../resourse/fonts/e-UkraineHead-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'e-Ukraine Head', sans-serif;
     margin: 0;
     padding: 0;
 }
