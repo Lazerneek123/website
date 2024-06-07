@@ -24,7 +24,7 @@ public interface PersonMapper {
   }
 
   @Nonnull
-  default   List<Person> toEntity(@Nonnull Iterable<PersonDto> peopleDto){
+  default List<Person> toEntity(@Nonnull Iterable<PersonDto> peopleDto) {
     List<Person> people = new ArrayList<>();
     for (var personDto : peopleDto) {
       people.add(toEntity(personDto));

@@ -1,6 +1,8 @@
 CREATE TABLE appointment
 (
-    id UUID PRIMARY KEY,
-    person_appointment VARCHAR NOT NULL,
-    image              BYTEA   NOT NULL
+    id          UUID PRIMARY KEY,
+    appointment VARCHAR NOT NULL,
+    person_id   UUID
+        CONSTRAINT appointment_person_id REFERENCES person (id),
+    image       BYTEA   NOT NULL
 );

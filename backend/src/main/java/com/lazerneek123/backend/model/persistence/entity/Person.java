@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
+public class Person implements Comparable<Person> {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,10 +37,10 @@ public class Person {
 
   private String patronymic;
 
-  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   private Party party;
 
-  @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+  @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinTable(
       name = "person_appointment",
       joinColumns = {@JoinColumn(name = "person_id")},
@@ -48,11 +48,16 @@ public class Person {
   )
   private List<Appointment> appointments;
 
-  @OneToMany(fetch = FetchType.LAZY)
+  @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinTable(
       name = "person_investigation",
       joinColumns = {@JoinColumn(name = "person_id")},
       inverseJoinColumns = {@JoinColumn(name = "investigation_id")}
   )
   private List<Investigation> personInvestigations;
+
+  @Override
+  public int compareTo(Person o) {
+    return personInvestigations.size() - o.personInvestigations.size();
+  }
 }

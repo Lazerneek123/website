@@ -4,6 +4,6 @@ CREATE TABLE person
     name       VARCHAR NOT NULL,
     surname    VARCHAR NOT NULL,
     patronymic VARCHAR NOT NULL,
-    party      UUID
+    party_id      UUID
         CONSTRAINT person_party_id REFERENCES party (id)
 );

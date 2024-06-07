@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class PersonDto implements Comparable<PersonDto>{
+public class PersonDto {
 
   private String name;
 
@@ -22,9 +22,4 @@ public class PersonDto implements Comparable<PersonDto>{
   private List<Appointment> appointments;
 
   private List<Investigation> personInvestigations;
-
-  @Override
-  public int compareTo(PersonDto o) {
-    return personInvestigations.size() - o.personInvestigations.size();
-  }
 }
