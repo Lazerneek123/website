@@ -1,6 +1,7 @@
 package com.lazerneek123.backend.service.impl;
 
 import com.lazerneek123.backend.model.dto.InvestigationDto;
+import com.lazerneek123.backend.model.dto.PersonDto;
 import com.lazerneek123.backend.model.mapper.InvestigationMapper;
 import com.lazerneek123.backend.model.persistence.repository.InvestigationRepository;
 import com.lazerneek123.backend.service.InvestigationService;
@@ -22,6 +23,7 @@ public class InvestigationServiceImpl implements InvestigationService {
   @Override
   public InvestigationDto save(InvestigationDto investigationDto) {
     var investigation = InvestigationMapper.INSTANCE.toEntity(investigationDto);
+
     var savedInvestigation = investigationRepository.save(investigation);
     return InvestigationMapper.INSTANCE.toDto(savedInvestigation);
   }
@@ -31,7 +33,6 @@ public class InvestigationServiceImpl implements InvestigationService {
     var investigation = investigationRepository.findById(id).get();
 
     investigation.setLabel(investigationDto.getLabel());
-    investigation.setInvestigatedPersons(investigationDto.getInvestigatedPersons());
     investigation.setContent(investigationDto.getContent());
     investigation.setContentEnglish(investigationDto.getContentEnglish());
     investigation.setSources(investigationDto.getSources());

@@ -48,6 +48,7 @@ public class Person implements Comparable<Person> {
   )
   private List<Appointment> appointments;
 
+
   @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinTable(
       name = "person_investigation",
@@ -58,6 +59,6 @@ public class Person implements Comparable<Person> {
 
   @Override
   public int compareTo(Person o) {
-    return personInvestigations.size() - o.personInvestigations.size();
+    return Integer.compare(o.personInvestigations.size(), personInvestigations.size());
   }
 }

@@ -1,6 +1,7 @@
 package com.lazerneek123.backend.model.persistence.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,6 +24,7 @@ public class Party {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private UUID id;
 
+  @Column(unique = true, nullable = false)
   private String name;
 
   private byte[] image;

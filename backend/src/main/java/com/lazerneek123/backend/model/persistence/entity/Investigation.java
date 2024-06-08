@@ -1,5 +1,6 @@
 package com.lazerneek123.backend.model.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,15 +10,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import java.sql.Timestamp;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Data
 @Entity
@@ -33,13 +36,16 @@ public class Investigation {
 
   private String label;
 
-  private Timestamp publishDate;
+  @CreationTimestamp
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date publishDate;
 
   private String content;
 
   private String contentEnglish;
 
-  @OneToMany(fetch = FetchType.LAZY)
+  @JsonBackReference
+  @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
   @JoinTable(
       name = "person_investigation",
       joinColumns = {@JoinColumn(name = "investigation_id")},
@@ -47,7 +53,7 @@ public class Investigation {
   )
   private List<Person> investigatedPersons;
 
-  @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+  @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinTable(
       name = "investigation_source",
       joinColumns = {@JoinColumn(name = "investigation_id")},

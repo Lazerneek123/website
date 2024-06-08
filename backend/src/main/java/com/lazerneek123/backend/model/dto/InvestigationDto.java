@@ -1,9 +1,9 @@
 package com.lazerneek123.backend.model.dto;
 
-import com.lazerneek123.backend.model.persistence.entity.Person;
 import com.lazerneek123.backend.model.persistence.entity.Source;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,15 +11,17 @@ import lombok.Data;
 @Builder
 public class InvestigationDto {
 
+  private UUID id;
+
   private String label;
 
-  private Timestamp publishDate;
+  private Date publishDate;
 
   private String content;
 
   private String contentEnglish;
 
-  private List<Person> investigatedPersons;
+  private List<PersonDto> investigatedPersons;
 
   private List<Source> sources;
 }

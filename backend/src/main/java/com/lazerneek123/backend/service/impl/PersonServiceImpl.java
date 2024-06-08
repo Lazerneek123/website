@@ -6,6 +6,7 @@ import com.lazerneek123.backend.model.mapper.InvestigationMapper;
 import com.lazerneek123.backend.model.mapper.PersonMapper;
 import com.lazerneek123.backend.model.persistence.entity.Investigation;
 import com.lazerneek123.backend.model.persistence.entity.Person;
+import com.lazerneek123.backend.model.persistence.repository.PartyRepository;
 import com.lazerneek123.backend.model.persistence.repository.PersonRepository;
 import com.lazerneek123.backend.service.PersonService;
 import jakarta.transaction.Transactional;
@@ -15,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,10 +24,14 @@ import org.springframework.stereotype.Service;
 public class PersonServiceImpl implements PersonService {
 
   private final PersonRepository personRepository;
+  private final PartyRepository partyRepository;
 
   @Override
   public PersonDto save(PersonDto personDto) {
     var person = PersonMapper.INSTANCE.toEntity(personDto);
+    var party = partyRepository.findByName(person.getParty().getName());
+    party.ifPresent(person::setParty);
+
     var newPerson = personRepository.save(person);
     return PersonMapper.INSTANCE.toDto(newPerson);
   }
@@ -48,7 +52,7 @@ public class PersonServiceImpl implements PersonService {
 
   @Override
   public void deleteById(UUID id) {
-     personRepository.deleteById(id);
+    personRepository.deleteById(id);
   }
 
   @Override
@@ -68,9 +72,8 @@ public class PersonServiceImpl implements PersonService {
 
   @Override
   public List<PersonDto> getAll(int page, int pageSize) {
-    var people =
-        personRepository.findAll(Pageable.ofSize(pageSize).withPage(page).getSortOr(Sort.sort(
-            Person.class)));
-    return PersonMapper.INSTANCE.toDto(people);
+    var people = personRepository.findAll(Pageable.ofSize(pageSize).withPage(page));
+    var sortedPeopleRating = people.get().sorted(Person::compareTo).toList();
+    return PersonMapper.INSTANCE.toDto(sortedPeopleRating);
   }
 }
