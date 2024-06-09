@@ -3,6 +3,8 @@ package com.lazerneek123.backend.service.impl;
 import com.lazerneek123.backend.model.dto.InvestigationDto;
 import com.lazerneek123.backend.model.dto.PersonDto;
 import com.lazerneek123.backend.model.mapper.InvestigationMapper;
+import com.lazerneek123.backend.model.persistence.entity.Investigation;
+import com.lazerneek123.backend.model.persistence.entity.Person;
 import com.lazerneek123.backend.model.persistence.repository.InvestigationRepository;
 import com.lazerneek123.backend.service.InvestigationService;
 import jakarta.transaction.Transactional;
@@ -54,8 +56,8 @@ public class InvestigationServiceImpl implements InvestigationService {
 
   @Override
   public List<InvestigationDto> getLatestInvestigations(int page, int pageSize) {
-    var investigations = investigationRepository.findAll(
-        Pageable.ofSize(pageSize).withPage(page).getSortOr(Sort.by("publishDate")));
-    return InvestigationMapper.INSTANCE.toDto(investigations);
+    var investigations = investigationRepository.findAll(Pageable.ofSize(pageSize).withPage(page));
+    var sortedInvestigations = investigations.get().sorted(Investigation::compareTo).toList();
+    return InvestigationMapper.INSTANCE.toDto(sortedInvestigations);
   }
 }

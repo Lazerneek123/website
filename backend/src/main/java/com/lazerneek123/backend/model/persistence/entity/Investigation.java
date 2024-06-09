@@ -28,7 +28,7 @@ import org.hibernate.annotations.CreationTimestamp;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Investigation {
+public class Investigation implements Comparable<Investigation> {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -60,4 +60,9 @@ public class Investigation {
       inverseJoinColumns = {@JoinColumn(name = "source_id")}
   )
   private List<Source> sources;
+
+  @Override
+  public int compareTo(Investigation o) {
+    return publishDate.compareTo(o.publishDate);
+  }
 }
