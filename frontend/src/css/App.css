@@ -7,9 +7,18 @@
 
 
 body {
+    width: Fixed (1, 920px)px;
+    height: Hug (4, 856.22px)px;
+    top: 100px;
+    left: 100px;
+    gap: 0px;
+    opacity: 0px;
     font-family: 'e-Ukraine Head', sans-serif;
     margin: 0;
     padding: 0;
+    background-image: url('../resourse/images/grunge.png');
+    background-size: 25%;
+    background-attachment: fixed
 }
 
 header {
@@ -17,7 +26,45 @@ header {
     color: #fff;
     padding: 1em;
     text-align: center;
+}
 
+/* Title */
+
+.divTitle {
+    width: Hug (1, 567px)px;
+    height: Hug (200px)px;
+    gap: 40px;
+    opacity: 0px;
+
+}
+
+.title1 {
+    font-family: e-Ukraine Head;
+    font-size: 160px;
+    font-weight: 700;
+    line-height: 160px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+    color: #E7E7E7;
+}
+
+.divTitle2 {
+    width: Hug (1, 027px)px;
+    height: Hug (200px)px;
+    padding: 20px 0px 0px 0px;
+    gap: 10px;
+    opacity: 0px;
+    background: #DE442C;
+}
+
+.title2 {
+    font-family: e-Ukraine Head;
+    font-size: 160px;
+    font-weight: 700;
+    line-height: 160px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+    color: #E7E7E7;
 }
 
 h1 {
@@ -106,6 +153,7 @@ header nav ul {
 }
 
 .party {
+    padding-left: 5px;
     font-size: 14px;
     color: #1F1F1F;
     margin-left: 100px;
@@ -139,6 +187,121 @@ header nav ul {
 .score p {
     margin: 0;
     font-weight: bold;
+}
+
+/*News*/
+
+.app {
+    background: white;
+}
+
+.divRating {
+    width: 69%;
+}
+
+.rating {
+    font-family: e-Ukraine Head;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 96px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+    color: #1F1F1F;
+}
+
+.buttonRating {
+    width: fit-content;
+    align-items: center;
+    color: #373838;
+    font-family: e-Ukraine Head;
+    font-family: 'e-Ukraine Head', sans-serif;
+    background: white;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: center;
+
+}
+
+.buttonRating:hover {
+    cursor: pointer;
+    background: #FF3B30;
+    color: white;
+    font-family: 'e-Ukraine Head', sans-serif;
+}
+
+/*Main title*/
+
+.container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: inline-block;
+    color: white;
+}
+
+.highlight {
+    background-color: #FF3B30;
+    padding: 0 15px;
+}
+
+.divider {
+    width: 100%;
+    border: 2px solid white;
+}
+
+.divHeaderTitle {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.divHeader {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.header1 p {
+    margin: 20px 0;
+}
+
+
+.header1 {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.arrows {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.arrows img {
+    width: 100px;
+    height: 100px;
+}
+
+.description {
+    display: inline-flex;
+    width: 35%;
+    font-size-adjust: 0.5;
+    word-wrap: break-word;
+    align-self: center;
+    margin: 0 auto;
+}
+
+.arrow {
+    width: 100px;
+    height: 100px;
+    gap: 0px;
+    opacity: 0px;
+    transform: rotate(-90deg);
+    filter: brightness(0) invert(1);
 }
 
 

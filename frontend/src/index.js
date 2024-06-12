@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './css/App.css';
 import candidateImage from './resourse/images/candidate.jpg';
 import photo from './resourse/images/photo.jpg';
+import duct from './resourse/images/duct.png';
 
 function Header() {
   return (
@@ -22,13 +23,28 @@ function Header() {
   );
 }
 
-function Hero() {
+
+function Title() {
   return (
-    <section class="hero">
-      <h1>Сайт спротиву</h1>
-      <p>Ми є об'єднанням людей, які борються за свободу та демократію в Україні.</p>
-      <button>Долучитися до нас</button>
-    </section>
+    <div class="container">
+      <div class="header1">
+        <div class="divHeader">
+          <div class="divHeaderTitle">
+            <h1 class="header1">САЙТ <span class="highlight">СПРОТИВУ</span></h1>
+            <hr class="divider" />
+          </div>
+          <p class="description">
+            Проект створений для того, щоб дати можливість громадянам України контролювати дії влади та боротися з корупцією.
+          </p>
+        </div>
+
+        <div class="arrows">
+          <img class="arrow" src={duct} alt="Arrow Down" />
+          <img class="arrow" src={duct} alt="Arrow Down" />
+          <img class="arrow" src={duct} alt="Arrow Down" />
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -61,19 +77,19 @@ function Candidates() {
   ];
 
   const RepresentativeCard = ({ name, surname, score, party, image, candidateImage }) => (
-    <div className="representative-card">
-      <div className="rectangle" style={{ backgroundImage: `url(${candidateImage})` }}>
-        <div className="score">
+    <div class="representative-card">
+      <div class="rectangle" style={{ backgroundImage: `url(${candidateImage})` }}>
+        <div class="score">
           <p>{score} ЗАШКВАРІВ</p>
         </div>
       </div>
 
-      <div className="info">
-        <h3 className="name">{name}</h3>
-        <h3 className="surname">{surname}</h3>
-        <div className="party-card">
-          <img className="photo" src={image} alt={`${party}`} />
-          <p className="party">{party}</p>
+      <div class="info">
+        <h3 class="name">{name}</h3>
+        <h3 class="surname">{surname}</h3>
+        <div class="party-card">
+          <img class="photo" src={image} alt={`${party}`} />
+          <p class="party">{party}</p>
         </div>
       </div>
     </div>
@@ -97,10 +113,12 @@ function Candidates() {
 
   return (
     <section class="news">
-      <h2>Новини</h2>
-      <div className="app">
-        <h1>Рейтинг зашкварів</h1>
-        <p>Ця категорія сайту присвячена висвітленню депутатів та чиновників, які зрадили довіру народу та чинили злочини проти України.</p>
+      <div class="app">
+        <div class="divRating">
+          <p class="rating">Рейтинг зашкварів</p>
+          <p>Ця категорія сайту присвячена висвітленню депутатів та чиновників, які зрадили довіру народу та чинили злочини проти України.</p>
+        </div>
+        <div class="buttonRating">РЕЙТИНГ ЗАШКВАРІВ</div>
         <RepresentativeList />
       </div>
     </section>
@@ -169,7 +187,7 @@ function App() {
   return (
     <div>
       <Header />
-      <Hero />
+      <Title />
       <Candidates />
       <Features />
       <News />
