@@ -7,17 +7,20 @@ import duct from './resourse/images/duct.png';
 
 function Header() {
   return (
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#">Головна</a></li>
-          <li><a href="#">Про нас</a></li>
-          <li><a href="#">Новини</a></li>
-          <li><a href="#">Контакти</a></li>
-        </ul>
-      </nav>
-      <div class="logo">
-        <img src="logo192.png" alt="Сайт спротиву" />
+    <header class="header">
+      <div class='header-container'>
+        <div class="nav-left">
+          <div class="div-btn">
+            <a href="#" class="nav-btn">Зашквари</a>
+          </div>
+          <div class="div-btn">
+            <a href="#" class="nav-btn">Особи</a>
+          </div>
+        </div>
+        <nav class="nav-right">
+          <a href="#" class="lang active">УКР</a>
+          <a href="#" class="lang">EN</a>
+        </nav>
       </div>
     </header>
   );

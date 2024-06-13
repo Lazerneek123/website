@@ -21,11 +21,106 @@ body {
     background-attachment: fixed
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1em;
+.header-container {
+    flex-direction: row;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1F1F1F;
+    border-bottom: 1px solid #EFF0F31A;
+    height: 104px;
+    padding: 0px 0px 0px 0px;
+    gap: 0px;
+    border: 0px 0px 1px 0px;
+    opacity: 0px;
+    align-self: center;
+    position: relative;
+}
+
+.nav-left {
+    display: flex;
+    flex-direction: row;
+    margin-left: 40px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+}
+
+.nav-right {
+    width: 100%;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: right;
+    margin-right: 40px;
+    text-align: center;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-left a,
+.nav-right a,
+.nav-btn,
+.nav-center .close-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-center .close-btn {
+    font-size: 24px;
+    line-height: 1;
+    width: Hug (100px)px;
+    height: Fill (104px)px;
+    gap: 40px;
+    opacity: 0px;
+}
+
+.lang.active {
+    border-bottom: 5px solid #FF3B30;
+    color: #FF3B30;
+}
+
+.lang {
+    padding: 10px;
+    border-bottom: 5px solid #1F1F1F;
+    font-weight: bold;
+}
+
+.lang:not(.active) {
+    opacity: 0.6;
+}
+
+.lang:active {
+    opacity: 1;
+}
+
+.div-btn {
+    height: 100%;
+    display: flex;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.div-btn:hover {
+    background: #FF3B30;
+}
+
+.nav-btn {
+    align-self: center;
 }
 
 /* Title */
@@ -189,7 +284,7 @@ header nav ul {
     font-weight: bold;
 }
 
-/*News*/
+/* News */
 
 .app {
     background: white;
@@ -231,7 +326,7 @@ header nav ul {
     font-family: 'e-Ukraine Head', sans-serif;
 }
 
-/*Main title*/
+/* Main title */
 
 .container {
     margin: 0;
