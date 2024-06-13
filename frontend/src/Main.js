@@ -59,7 +59,7 @@ function Candidates() {
 
   const RepresentativeCard = ({ name, surname, score, party, image, candidateImage }) => (
     <div class="representative-card">
-      <div class="rectangle" style={{ backgroundImage: `url(${candidateImage})` }}>
+      <div class="rectangle" style={{ backgroundImage: `url(${candidateImage})`, filter: 'grayscale(100%)' }}>
         <div class="score">
           <p>{score} ЗАШКВАРІВ</p>
         </div>
@@ -97,7 +97,7 @@ function Candidates() {
       <div class="app">
         <div class="divRating">
           <p class="rating">Рейтинг зашкварів</p>
-          <p>Ця категорія сайту присвячена висвітленню депутатів та чиновників, які зрадили довіру народу та чинили злочини проти України.</p>
+          <p class="descriptionNews">Ця категорія сайту присвячена висвітленню депутатів та чиновників, які зрадили довіру народу та чинили злочини проти України.</p>
         </div>
         <div class="buttonRating">РЕЙТИНГ ЗАШКВАРІВ</div>
         <RepresentativeList />
