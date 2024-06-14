@@ -5,6 +5,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'e-Ukraine Head Light';
+    src: url('../resourse/fonts/e-UkraineHead-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'e-Ukraine Head Regular';
+    src: url('../resourse/fonts/e-UkraineHead-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 body {
     width: Fixed (1, 920px)px;
@@ -13,13 +27,15 @@ body {
     left: 100px;
     gap: 0px;
     opacity: 0px;
-    font-family: 'e-Ukraine Head', sans-serif;
+    font-family: 'e-Ukraine Head';
     margin: 0;
     padding: 0;
     background-image: url('../resourse/images/grunge.png');
     background-size: 25%;
     background-attachment: fixed
 }
+
+/* Header */
 
 .header-container {
     flex-direction: row;
@@ -250,6 +266,9 @@ header nav ul {
     padding-left: 5px;
     font-size: 14px;
     color: #1F1F1F;
+    font-family: Arial;
+    font-weight: bolder;
+    font-style: normal;
     margin-left: 100px;
     margin: 0;
     align-self: flex-start;
@@ -303,12 +322,16 @@ header nav ul {
     color: #1F1F1F;
 }
 
+.descriptionNews {
+    color: #1F1F1F;
+}
+
 .buttonRating {
     width: fit-content;
     align-items: center;
     color: #373838;
     font-family: e-Ukraine Head;
-    font-family: 'e-Ukraine Head', sans-serif;
+    font-family: 'e-Ukraine Head';
     background: white;
     font-size: 20px;
     font-weight: 700;
@@ -322,7 +345,7 @@ header nav ul {
     cursor: pointer;
     background: #FF3B30;
     color: white;
-    font-family: 'e-Ukraine Head', sans-serif;
+    font-family: 'e-Ukraine Head';
 }
 
 /* Main title */
@@ -403,4 +426,27 @@ header nav ul {
 .representative-card h3,
 .representative-card p {
     margin: 8px 0;
+}
+
+/* Footer */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+    background-color: #1F1F1F;
+    border-bottom: 1px solid #EFF0F31A;
+    height: 54px;
+    padding: 0px 0px 0px 0px;
+    gap: 0px;
+    border: 0px 0px 1px 0px;
+    opacity: 0px;
+    position: relative;
+}
+
+.footerText {
+    color: white;
+    font-family: 'e-Ukraine Head Light'
 }

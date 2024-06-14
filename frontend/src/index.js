@@ -28,8 +28,8 @@ function Header() {
 
 function Footer() {
   return (
-    <footer>
-      <p>© 2023 Сайт спротиву. Всі права захищені.</p>
+    <footer class='footer'>
+      <p class='footerText'>© 2023 Сайт спротиву. Всі права захищені.</p>
     </footer>
   );
 }
