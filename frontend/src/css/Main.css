@@ -303,10 +303,62 @@ header nav ul {
     font-weight: bold;
 }
 
+/* Pagination */
+
+.pagination {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    margin-top: 40px;
+    gap: 0px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: #ccc;
+    overflow: hidden;
+    position: relative;
+}
+
+
+button {
+    width: 230px;
+    height: 80px;
+    gap: 0px;
+    opacity: 0px;
+    background-color: #1F1F1F;
+    color: white;
+    font-size: larger;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:hover {
+    background-color: #DE442C;
+    cursor: pointer;
+}
+
+.prevPage {
+    background-color: #1F1F1F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 /* News */
 
 .app {
     background: white;
+    margin-bottom: 20px;
 }
 
 .divRating {
@@ -428,6 +480,47 @@ header nav ul {
 .representative-card p {
     margin: 8px 0;
 }
+
+/*Investigation*/
+
+.headerInvestigation {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E7E7E7;
+    font-family: e-Ukraine Head;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 96px;
+    letter-spacing: 0.14354167878627777px;
+    text-align: left;
+
+}
+
+.headerInvestigation h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.subheaderInvestigation {
+    text-align: center;
+    color: #FFFFFFB2;
+    margin-bottom: 20px;
+}
+
+.subheaderInvestigation p {
+    font-size: 16px;
+}
+
+.sectionInvestigation {
+    margin-bottom: 20px;
+}
+
+.sectionInvestigation h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 
 /* Footer */
 
