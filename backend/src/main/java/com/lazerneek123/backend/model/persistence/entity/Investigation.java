@@ -36,6 +36,8 @@ public class Investigation implements Comparable<Investigation> {
 
   private String label;
 
+  private String description;
+
   @CreationTimestamp
   @Temporal(TemporalType.TIMESTAMP)
   private Date publishDate;

@@ -15,6 +15,8 @@ public class InvestigationDto {
 
   private String label;
 
+  private String description;
+
   private Date publishDate;
 
   private String content;

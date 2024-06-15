@@ -42,7 +42,7 @@ root.render(
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/investigation" element={<Investigation />} />
+            <Route path="/investigation/*" element={<Investigation />} />
           </Routes>
         </BrowserRouter>
       </React.StrictMode>

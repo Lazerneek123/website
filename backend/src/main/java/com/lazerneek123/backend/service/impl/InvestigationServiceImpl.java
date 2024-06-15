@@ -1,10 +1,8 @@
 package com.lazerneek123.backend.service.impl;
 
 import com.lazerneek123.backend.model.dto.InvestigationDto;
-import com.lazerneek123.backend.model.dto.PersonDto;
 import com.lazerneek123.backend.model.mapper.InvestigationMapper;
 import com.lazerneek123.backend.model.persistence.entity.Investigation;
-import com.lazerneek123.backend.model.persistence.entity.Person;
 import com.lazerneek123.backend.model.persistence.repository.InvestigationRepository;
 import com.lazerneek123.backend.service.InvestigationService;
 import jakarta.transaction.Transactional;
@@ -12,7 +10,6 @@ import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,6 +32,7 @@ public class InvestigationServiceImpl implements InvestigationService {
     var investigation = investigationRepository.findById(id).get();
 
     investigation.setLabel(investigationDto.getLabel());
+    investigation.setDescription(investigationDto.getDescription());
     investigation.setContent(investigationDto.getContent());
     investigation.setContentEnglish(investigationDto.getContentEnglish());
     investigation.setSources(investigationDto.getSources());

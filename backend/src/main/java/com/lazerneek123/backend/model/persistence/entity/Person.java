@@ -37,6 +37,8 @@ public class Person implements Comparable<Person> {
 
   private String patronymic;
 
+  private byte[] image;
+
   @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   private Party party;
 
