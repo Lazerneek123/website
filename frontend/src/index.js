@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import Main from './Main.js';
+import Investigation from './Investigation.js';
 
 function Header() {
   return (
@@ -41,6 +42,7 @@ root.render(
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Main />} />
+            <Route path="/investigation" element={<Investigation />} />
           </Routes>
         </BrowserRouter>
       </React.StrictMode>
