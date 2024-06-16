@@ -204,19 +204,23 @@ header nav ul {
 .representative-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    gap: 7%;
 }
 
+
 .representative-card {
-    padding: 16px;
-    margin: 16px;
+    width: 360px;
+    height: 620px;
+    gap: 0px;
+    opacity: 0px;
+    padding: 0px;
+    margin-top: 16px;
     text-align: center;
-    width: 400px;
 }
 
 .rectangle {
     width: 100%;
-    height: 400px;
+    height: 410px;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -288,10 +292,10 @@ header nav ul {
     bottom: 0;
     left: 0;
     color: white;
-    padding: 5px;
     text-align: start;
-    width: 90%;
-    height: Hug (56px)px;
+    width: 89%;
+    width: 320px;
+    height: 40px;
     padding: 10px 20px 10px 20px;
     gap: 0px;
     opacity: 0px;
@@ -314,7 +318,7 @@ header nav ul {
 }
 
 .progress-bar {
-    height: 4px;
+    height: 3px;
     background-color: #ccc;
     overflow: hidden;
     position: relative;
@@ -358,66 +362,138 @@ button:hover {
 .app {
     background: white;
     margin-bottom: 20px;
-}
-
-.divRating {
-    width: 69%;
+    padding-top: 5px;
+    padding-bottom: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .rating {
     font-family: e-Ukraine Head;
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 700;
     line-height: 96px;
     letter-spacing: 0.15000000596046448px;
     text-align: left;
+    margin-bottom: 10px;
     color: #1F1F1F;
+}
+
+.latest-rating-full-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.latest-rating-left {
+    width: 70%;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.latest-rating-right {
+    justify-content: center;
+    text-decoration: none;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    width: 131px;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.labelRating {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    font-family: 'e-Ukraine Head';
+    letter-spacing: 0.15000000596046448px;
+    text-align: center;
+    margin: 8px;
+    text-transform: uppercase;
+    margin-right: 1px;
+}
+
+.latest-rating-right {
+    justify-content: center;
+    text-decoration: none;
+    align-self: flex-end;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 270px;
+    color: #373838;
+}
+
+.latest-rating-right:hover {
+    animation: block-orange 0.4s ease;
+    animation-fill-mode: forwards;
+}
+
+.latest-rating-right:hover .arrowRightUpBlack {
+    animation: invert 0.4s ease;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes block-orange {
+    100% {
+        color: #EFF0F3;
+        background: #DE442C;
+    }
+}
+
+@keyframes invert {
+    100% {
+        filter: invert(100%);
+    }
+}
+
+.divRating {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .descriptionNews {
     color: #1F1F1F;
-}
-
-.buttonRating {
-    width: fit-content;
-    align-items: center;
-    color: #373838;
-    font-family: e-Ukraine Head;
-    font-family: 'e-Ukraine Head';
-    background: white;
+    font-family: Arial, sans-serif;
     font-size: 20px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 0.15000000596046448px;
-    text-align: center;
-
-}
-
-.buttonRating:hover {
-    cursor: pointer;
-    background: #FF3B30;
-    color: white;
-    font-family: 'e-Ukraine Head';
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+    line-height: 1.5;
 }
 
 /* Main title */
 
 .container {
+    width: 80%;
     margin: 0;
-    padding: 0;
-    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 150px;
+    padding-left: 10%;
+    padding-right: 10%;
     display: inline-block;
     color: white;
 }
 
 .highlight {
-    background-color: #FF3B30;
+    height: 100%;
+    background-color: #DE442C;
     padding: 0 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: -30px;
+    margin-left: 20px;
 }
 
 .divider {
-    width: 100%;
-    border: 2px solid white;
+    width: 99.5%;
+    margin-top: 65px;
+    border: 3px solid #E7E7E7
 }
 
 .divHeaderTitle {
@@ -426,8 +502,15 @@ button:hover {
     align-self: center;
 }
 
+.divheader1 {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
 .divHeader {
     display: inline-flex;
+    justify-self: center;
     flex-direction: column;
 }
 
@@ -437,36 +520,45 @@ button:hover {
 
 
 .header1 {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    width: 80%;
+    display: inline-flex;
+    flex-direction: row;
     text-align: center;
     margin-bottom: 15px;
+    font-size: 125px;
 }
 
 .arrows {
+    width: fit-content;
     display: flex;
     justify-content: center;
+    align-self: center;
     gap: 20px;
 }
 
 .arrows img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 
 .description {
-    display: inline-flex;
-    width: 35%;
+    display: flex;
+    width: 40%;
+    margin-top: 65px;
     font-size-adjust: 0.5;
+    padding: 45px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.5;
     word-wrap: break-word;
+    text-align: center;
     align-self: center;
     margin: 0 auto;
 }
 
 .arrow {
-    width: 100px;
-    height: 100px;
     gap: 0px;
     opacity: 0px;
     transform: rotate(-90deg);
@@ -482,17 +574,29 @@ button:hover {
 
 /*Investigation*/
 
-.headerInvestigation {
-    text-align: center;
+.appInvestigation {
     margin-bottom: 20px;
-    color: #E7E7E7;
+    padding-top: 5px;
+    padding-bottom: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.latest-investigation-left {
+    width: 74%;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.headerInvestigation {
     font-family: e-Ukraine Head;
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 700;
     line-height: 96px;
-    letter-spacing: 0.14354167878627777px;
+    letter-spacing: 0.15000000596046448px;
     text-align: left;
-
+    margin-bottom: 10px;
+    color: #E7E7E7;
 }
 
 .headerInvestigation h1 {
@@ -501,9 +605,14 @@ button:hover {
 }
 
 .subheaderInvestigation {
-    text-align: center;
+    color: #1F1F1F;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+    line-height: 1.5;
     color: #FFFFFFB2;
-    margin-bottom: 20px;
 }
 
 .subheaderInvestigation p {
@@ -511,13 +620,79 @@ button:hover {
 }
 
 .sectionInvestigation {
+    display: flex;
     margin-bottom: 20px;
+    flex-direction: column;
 }
+
+.dividerInvestigation {
+    width: 99.5%;
+    margin-top: 65px;
+    border: 0.96px solid #FFFFFF80;
+}
+
+
+.investigation-header {
+    text-decoration: none;
+    width: fit-content;
+    color: #EFF0F3;
+    padding-bottom: 3px;
+
+}
+
+.investigation-header:hover,
+.investigation-header:hover>a {
+    animation: link-orange 0.4s ease;
+    animation-fill-mode: forwards;
+}
+
+
+.investigation-header:hover .arrowRightUp {
+    animation: arrow-orange 0.4s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes link-orange {
+    100% {
+        color: #DE442C;
+    }
+}
+
+@keyframes arrow-orange {
+    100% {
+        filter: invert(44%) sepia(74%) saturate(6206%) hue-rotate(350deg) brightness(95%) contrast(82%);
+    }
+}
+
+
+
+
+
+
 
 .sectionInvestigation h2 {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+/* Last section */
+
+.person-icon {
+    align-self: center;
+    margin-left: 20px;
+    width: 300px;
+    height: 30px;
+    border-radius: 1em;
+    filter: grayscale(0%);
+}
+
+.latest-investigations-main {
+    padding-top: 0px;
+    padding-bottom: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #EFF0F3;
 }
 
 
