@@ -12,21 +12,50 @@ import markdownit from 'markdown-it'
 const md = markdownit({
     html: true
 })
+
+const months = new Map([
+    [1, "СІЧ"],
+    [2, "ЛЮТ"],
+    [3, "БЕР"],
+    [4, "КВІ"],
+    [5, "ТРА"],
+    [6, "ЧЕР"],
+    [7, "ЛИП"],
+    [8, "СЕР"],
+    [9, "ВЕР"],
+    [10, "ЖОВ"],
+    [11, "ЛИС"],
+    [12, "ГРУ"]
+]);
+
+function formatDate(date) {
+    let parsedDate = date.split("T")[0].split("-");
+    let year = Number(parsedDate[0]);
+    let month = months.get(Number(parsedDate[1]));
+    let day = Number(parsedDate[2]);
+    return day + " " + month + " " + year;
+}
+
+async function getInvestigation() {
+    const path = window.location.href.slice(window.location.origin.length);
+    let data = await fetch("http://localhost:8080" + path, { method: 'GET', headers: { 'Authorization': 'Basic ' + btoa("user" + ":" + "admin") } })
+        .then((response) => response.json());
+    return data;
+}
+
+async function getLatestInvestigations() {
+    const path = window.location.href.slice(window.location.origin.length);
+    let data = await fetch("http://localhost:8080/latest-investigations?pageSize=6", { method: 'GET', headers: { 'Authorization': 'Basic ' + btoa("user" + ":" + "admin") } })
+        .then((response) => response.json());
+    return data;
+}
+
+let investigation = await getInvestigation();
+let latestInvestigations = await getLatestInvestigations();
+let investigationDate = formatDate(investigation.publishDate);
+
 function getMarkdownContent() {
-    return DOMPurify.sanitize(md.render(`
-Сьогодні правоохоронні органи оголосили про викриття корупційної схеми, до якої був залучений чиновник Максим Шевченко.
-
-<a style="background-color: #DE442C80; color: black; font-weight: 600;" href="https://www.nabu.gov.ua/">Згідно з НАБУ</a>, чиновник Максим Шевченко використовував своє службове становище для корупційних схем. В результаті його дій державі було завдано збитків на суму 100 000 000 гривень.
-
-<img style="width: 100%" src="https://media.cnn.com/api/v1/images/stellar/prod/200601192505-01-protest-presidents.jpg" />
-
-Максим Шевченко був затриманий та йому пред'явлено звинувачення у корупції та зловживанні службовим положенням. Важливість розслідування та покарання: 
-- Цей випадок є свідченням корупції в Україні. 
-- Важливо, щоб подібні злочини розслідувалися та каралися. 
-- Це допоможе запобігти подібним випадкам у майбутньому.
-
-Цей випадок є черговим свідченням корупції, яка, на жаль, все ще поширена в Україні. Важливо, щоб подібні злочини розслідувалися та каралися, щоб запобігти подібним випадкам у майбутньому.
-`));
+    return DOMPurify.sanitize(md.render(investigation.content));
 }
 
 function MarkdownHtmlContent() {
@@ -47,74 +76,42 @@ function InvestigationInfo() {
                     <img class="breadcrumb-arrow" src={arrow} />
                 </div>
                 <div>
-                    <div class="lower-intensity-color">Журналістське розслідування викриває давно забуті корупційні схеми в уряді</div>
+                    <div class="lower-intensity-color">{investigation.label}</div>
                 </div>
             </div>
             <div class="investigation-header-info">
-                <span class="date">22 БЕР 2024</span>
-                <div class="investigation-header">Журналістське розслідування викриває давно забуті корупційні схеми в уряді</div>
-                <div class="investigation-header-description">Цей випадок є черговим свідченням корупції, яка, на жаль, все ще поширена в Україні. Важливо, щоб подібні злочини розслідувалися та каралися, щоб запобігти подібним випадкам у майбутньому.</div>
+                <span class="date">{investigationDate}</span>
+                <div class="investigation-header">{investigation.label}</div>
+                <div class="investigation-header-description">{investigation.description}</div>
                 <div class="associated-persons-info">
                     <div class="sub-header"> Пов’язані особи: </div>
                     <div class="associated-persons">
-                        <div class="person">
+                    {investigation.investigatedPersons.map( person =>
+                        <Link class="person" href={"http://localhost:3000/person/"+person.id}>
                             <img class="person-icon" src={personImage} />
-                            <p class="associated-person-name">Максим Шевченко</p>
-                        </div>
-                        <div class="person">
-                            <img class="person-icon" src={personImage} />
-                            <p class="associated-person-name">Максим Шевченко</p>
-                        </div>
-                        <div class="person">
-                            <img class="person-icon" src={personImage} />
-                            <p class="associated-person-name">Максим Шевченко</p>
-                        </div>
-                        <div class="person">
-                            <img class="person-icon" src={personImage} />
-                            <p class="associated-person-name">Максим Шевченко</p>
-                        </div>
-                        <div class="person">
-                            <img class="person-icon" src={personImage} />
-                            <p class="associated-person-name">Максим Шевченко</p>
-                        </div>
-                        <div class="person">
-                            <img class="person-icon" src={personImage} />
-                            <p class="associated-person-name">Максим Шевченко</p>
-                        </div>
+                            <p class="associated-person-name">{person.name+" "+person.surname}</p>
+                        </Link>
+                        )} 
                     </div>
                 </div>
             </div>
         </div>
     );
-}
+} 
 
 function Sources() {
     return (
         <div class="sources">
             <div class="sub-header"> Список Джерел </div>
+            {investigation.sources.map( source =>
             <div class="source">
-                <a class="source-header" href="">
-                    Національне антикорупційне бюро України (НАБУ)
+                <a class="source-header" href={source.link}>
+                    {source.name}
                     <img class="arrowRightUp" src={arrowRightUp} />
                 </a>
-                <p class="source-description">Максим Шевченко затриманий за підозрою в корупції!</p>
+                <p class="source-description">{source.label}</p>
             </div>
-            <div class="source">
-                <a class="source-header" href="">
-                    Національне антикорупційне бюро України (НАБУ)
-                    <img class="arrowRightUp" src={arrowRightUp} />
-                </a>
-                <p class="source-description">Корупційна схема чиновника розкрита!
-                    100 000 гривень збитків державі: Максим Шевченко відповість за свої дії!</p>
-            </div>
-            <div class="source">
-                <a class="source-header" href="">
-                    Національне антикорупційне бюро України (НАБУ)
-                    <img class="arrowRightUp" src={arrowRightUp} />
-                </a>
-                <p class="source-description">Чиновник Максим Шевченко затриманий за підозрою в корупції!
-                    Високопосадовець викритий у хабарництві!</p>
-            </div>
+            )}
         </div>
     );
 }
@@ -133,72 +130,21 @@ function LatestInvestigations() {
                 </a>
             </div>
             <div class="latest-investigation-flow">
-                <div class="investigation-card">
+            {latestInvestigations.map( investigation =>
+                <a class="investigation-card" href={"http://localhost:3000/investigation/"+investigation.id}>
                     <div class="investigation-card-content">
                         <div class="investigation-card-header">
                             <img class="person-icon" src={personImage} />
-                            <div class="investigation-card-text">Maксим Петренко</div>
-                            <div class="investigation-card-text">+5</div>
+                            <div class="investigation-card-text">{investigation.investigatedPersons[0].name+ " "+investigation.investigatedPersons[0].surname}</div>
+                            {investigation.investigatedPersons.length != 1 &&
+                            <div class="investigation-card-text">+investigation.investigatedPersons.length}</div>
+                            }
                         </div>
-                        <span class="investigation-card-date ">22 БЕР 2024</span>
-                        <div class="investigation-card-label">Незаконне збагачення політиків - це злочин проти народу: час покласти край!</div>
+                        <span class="investigation-card-date">{formatDate(investigation.publishDate)}</span>
+                        <div class="investigation-card-label">{investigation.label}</div>
                     </div>
-                </div>
-                <div class="investigation-card">
-                    <div class="investigation-card-content">
-                        <div class="investigation-card-header">
-                            <img class="person-icon" src={personImage} />
-                            <div class="investigation-card-text">Maксим Петренко</div>
-                            <div class="investigation-card-text">+5</div>
-                        </div>
-                        <span class="investigation-card-date ">22 БЕР 2024</span>
-                        <div class="investigation-card-label">Незаконне збагачення політиків - це злочин проти народу: час покласти край!</div>
-                    </div>
-                </div>
-                <div class="investigation-card">
-                    <div class="investigation-card-content">
-                        <div class="investigation-card-header">
-                            <img class="person-icon" src={personImage} />
-                            <div class="investigation-card-text">Maксим Петренко</div>
-                            <div class="investigation-card-text">+5</div>
-                        </div>
-                        <span class="investigation-card-date ">22 БЕР 2024</span>
-                        <div class="investigation-card-label">Незаконне збагачення політиків - це злочин проти народу: час покласти край!</div>
-                    </div>
-                </div>
-                <div class="investigation-card">
-                    <div class="investigation-card-content">
-                        <div class="investigation-card-header">
-                            <img class="person-icon" src={personImage} />
-                            <div class="investigation-card-text">Maксим Петренко</div>
-                            <div class="investigation-card-text">+5</div>
-                        </div>
-                        <span class="investigation-card-date ">22 БЕР 2024</span>
-                        <div class="investigation-card-label">Незаконне збагачення політиків - це злочин проти народу: час покласти край!</div>
-                    </div>
-                </div>
-                <div class="investigation-card">
-                    <div class="investigation-card-content">
-                        <div class="investigation-card-header">
-                            <img class="person-icon" src={personImage} />
-                            <div class="investigation-card-text">Maксим Петренко</div>
-                            <div class="investigation-card-text">+5</div>
-                        </div>
-                        <span class="investigation-card-date ">22 БЕР 2024</span>
-                        <div class="investigation-card-label">Незаконне збагачення політиків - це злочин проти народу: час покласти край!</div>
-                    </div>
-                </div>
-                <div class="investigation-card">
-                    <div class="investigation-card-content">
-                        <div class="investigation-card-header">
-                            <img class="person-icon" src={personImage} />
-                            <div class="investigation-card-text">Maксим Петренко</div>
-                            <div class="investigation-card-text">+5</div>
-                        </div>
-                        <span class="investigation-card-date ">22 БЕР 2024</span>
-                        <div class="investigation-card-label">Незаконне збагачення політиків - це злочин проти народу: час покласти край!</div>
-                    </div>
-                </div>
+                </a>
+            )}
             </div>
         </div>
     );
@@ -211,8 +157,8 @@ function Investigation() {
         <MarkdownHtmlContent />                                        
         <Sources />
         <LatestInvestigations />
-    </div>
-);         
-}
-
+    </div>   
+    );
+}  
+    
 export default Investigation;

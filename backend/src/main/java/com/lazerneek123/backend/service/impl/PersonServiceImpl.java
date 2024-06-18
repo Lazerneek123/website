@@ -64,9 +64,9 @@ public class PersonServiceImpl implements PersonService {
   @Override
   public List<InvestigationDto> getPersonInvestigations(UUID id, int page, int pageSize) {
     var person = personRepository.findById(id).get();
-    var pagable = Pageable.ofSize(pageSize).withPage(page);
+    var pageable = Pageable.ofSize(pageSize).withPage(page);
     final Page<Investigation> personInvestigations =
-        new PageImpl<>(person.getPersonInvestigations(), pagable, pageSize);
+        new PageImpl<>(person.getPersonInvestigations(), pageable, pageSize);
     return InvestigationMapper.INSTANCE.toDto(personInvestigations.get().toList());
   }
 
