@@ -38,21 +38,30 @@ function formatDate(date) {
 
 async function getInvestigation() {
     const path = window.location.href.slice(window.location.origin.length);
-    let data = await fetch("http://localhost:8080" + path, { method: 'GET', headers: { 'Authorization': 'Basic ' + btoa("user" + ":" + "admin") } })
-        .then((response) => response.json());
-    return data;
+    const inv = /([/]investigation[/])([\d\w-])+/g
+    if (path.match(inv) != null) {
+        console.log(path.match(inv));
+        let data = await fetch("http://localhost:8080" + path, { method: 'GET', headers: { 'Authorization': 'Basic ' + btoa("user" + ":" + "admin") } })
+            .then((response) => response.json());
+        return data;
+    }
+    return null;
 }
 
 async function getLatestInvestigations() {
     const path = window.location.href.slice(window.location.origin.length);
-    let data = await fetch("http://localhost:8080/latest-investigations?pageSize=6", { method: 'GET', headers: { 'Authorization': 'Basic ' + btoa("user" + ":" + "admin") } })
-        .then((response) => response.json());
-    return data;
+    const inv = /([/]investigation[/])([\d\w-])+/g
+    if (path.match(inv) != null) {
+        console.log(path.match(inv));
+        let data = await fetch("http://localhost:8080/latest-investigations?pageSize=6", { method: 'GET', headers: { 'Authorization': 'Basic ' + btoa("user" + ":" + "admin") } })
+            .then((response) => response.json());
+        return data;
+    }
+    return null;
 }
 
 let investigation = await getInvestigation();
 let latestInvestigations = await getLatestInvestigations();
-let investigationDate = formatDate(investigation.publishDate);
 
 function getMarkdownContent() {
     return DOMPurify.sanitize(md.render(investigation.content));
@@ -80,37 +89,37 @@ function InvestigationInfo() {
                 </div>
             </div>
             <div class="investigation-header-info">
-                <span class="date">{investigationDate}</span>
+                <span class="date">{formatDate(investigation.publishDate)}</span>
                 <div class="investigation-header">{investigation.label}</div>
                 <div class="investigation-header-description">{investigation.description}</div>
                 <div class="associated-persons-info">
                     <div class="sub-header"> Пов’язані особи: </div>
                     <div class="associated-persons">
-                    {investigation.investigatedPersons.map( person =>
-                        <Link class="person" href={"http://localhost:3000/person/"+person.id}>
-                            <img class="person-icon" src={personImage} />
-                            <p class="associated-person-name">{person.name+" "+person.surname}</p>
-                        </Link>
-                        )} 
+                        {investigation.investigatedPersons.map(person =>
+                            <Link class="person" href={"http://localhost:3000/person/" + person.id}>
+                                <img class="person-icon" src={personImage} />
+                                <p class="associated-person-name">{person.name + " " + person.surname}</p>
+                            </Link>
+                        )}
                     </div>
                 </div>
             </div>
         </div>
     );
-} 
+}
 
 function Sources() {
     return (
         <div class="sources">
             <div class="sub-header"> Список Джерел </div>
-            {investigation.sources.map( source =>
-            <div class="source">
-                <a class="source-header" href={source.link}>
-                    {source.name}
-                    <img class="arrowRightUp" src={arrowRightUp} />
-                </a>
-                <p class="source-description">{source.label}</p>
-            </div>
+            {investigation.sources.map(source =>
+                <div class="source">
+                    <a class="source-header" href={source.link}>
+                        {source.name}
+                        <img class="arrowRightUp" src={arrowRightUp} />
+                    </a>
+                    <p class="source-description">{source.label}</p>
+                </div>
             )}
         </div>
     );
@@ -130,35 +139,35 @@ function LatestInvestigations() {
                 </a>
             </div>
             <div class="latest-investigation-flow">
-            {latestInvestigations.map( investigation =>
-                <a class="investigation-card" href={"http://localhost:3000/investigation/"+investigation.id}>
-                    <div class="investigation-card-content">
-                        <div class="investigation-card-header">
-                            <img class="person-icon" src={personImage} />
-                            <div class="investigation-card-text">{investigation.investigatedPersons[0].name+ " "+investigation.investigatedPersons[0].surname}</div>
-                            {investigation.investigatedPersons.length != 1 &&
-                            <div class="investigation-card-text">+investigation.investigatedPersons.length}</div>
-                            }
+                {latestInvestigations.map(investigation =>
+                    <a class="investigation-card" href={"http://localhost:3000/investigation/" + investigation.id}>
+                        <div class="investigation-card-content">
+                            <div class="investigation-card-header">
+                                <img class="person-icon" src={personImage} />
+                                <div class="investigation-card-text">{investigation.investigatedPersons[0].name + " " + investigation.investigatedPersons[0].surname}</div>
+                                {investigation.investigatedPersons.length != 1 &&
+                                    <div class="investigation-card-text">+investigation.investigatedPersons.length}</div>
+                                }
+                            </div>
+                            <span class="investigation-card-date">{formatDate(investigation.publishDate)}</span>
+                            <div class="investigation-card-label">{investigation.label}</div>
                         </div>
-                        <span class="investigation-card-date">{formatDate(investigation.publishDate)}</span>
-                        <div class="investigation-card-label">{investigation.label}</div>
-                    </div>
-                </a>
-            )}
+                    </a>
+                )}
             </div>
         </div>
     );
-} 
+}
 
 function Investigation() {
     return (
-    <div>
-        <InvestigationInfo />
-        <MarkdownHtmlContent />                                        
-        <Sources />
-        <LatestInvestigations />
-    </div>   
+        <div>
+            <InvestigationInfo />
+            <MarkdownHtmlContent />
+            <Sources />
+            <LatestInvestigations />
+        </div>
     );
-}  
-    
+}
+
 export default Investigation;
