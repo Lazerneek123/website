@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import Main from './Main.js';
 import Investigation from './Investigation.js';
+import Investigations from './Investigations.js';
+import Persons from './Persons.js';
 
 function Header() {
   return (
@@ -11,18 +13,19 @@ function Header() {
       <div class='header-container'>
         <div class="nav-left">
           <div class="div-btn">
-            <a href="#" class="nav-btn">Зашквари</a>
+            <Link to="/investigations" class="nav-btn">Зашквари</Link>
           </div>
           <div class="div-btn">
-            <a href="#" class="nav-btn">Особи</a>
+            <Link to="/persons" class="nav-btn">Особи</Link>
           </div>
         </div>
         <nav class="nav-right">
-          <a href="#" class="lang active">УКР</a>
-          <a href="#" class="lang">EN</a>
+          <a href="#" className="lang active">УКР</a>
+          <a href="#" className="lang">EN</a>
         </nav>
       </div>
     </header>
+
   );
 }
 
@@ -37,16 +40,18 @@ function Footer() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div>
-      <Header />
-      <React.StrictMode>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/main" element={<Main />} />
-            <Route path="/investigation/*" element={<Investigation />} />
-          </Routes>
-        </BrowserRouter>
-      </React.StrictMode>
-      <Footer />
+    <React.StrictMode>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/investigation" component={Investigation} />
+          <Route exact path="/investigations" component={Investigations} />
+          <Route exact path="/persons" component={Persons} />
+        </Switch>
+        <Footer />
+      </Router>
+    </React.StrictMode>
   </div>
 )
 
