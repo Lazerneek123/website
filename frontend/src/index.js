@@ -6,6 +6,7 @@ import Main from './Main.js';
 import Investigation from './Investigation.js';
 import Investigations from './Investigations.js';
 import Persons from './Persons.js';
+import './css/index.css';
 
 function Header() {
   return (
@@ -18,6 +19,9 @@ function Header() {
           <div class="div-btn">
             <Link to="/persons" class="nav-btn">Особи</Link>
           </div>
+        </div>
+        <div class="div-btn-back">
+          <Link to="/" class="div-back"></Link>
         </div>
         <nav class="nav-right">
           <a href="#" className="lang active">УКР</a>

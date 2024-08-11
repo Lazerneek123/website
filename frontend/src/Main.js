@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './css/Main.css';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import candidateImage from './resourse/images/candidate.jpg';
 import photo from './resourse/images/photo.jpg';
 import duct from './resourse/images/duct.png';
 import arrowRightUpBlack from './resourse/images/fontisto_arrow-right-black.png';
 import personImage from './resourse/images/candidate.jpg';
 import arrowRightUp from './resourse/images/arrow-right-up.png';
-
 
 function Title() {
   return (
@@ -114,7 +114,8 @@ function Candidates() {
 
   const RepresentativeCard = ({ name, surname, score, party, image, candidateImage }) => (
     <div class="representative-card">
-      <div class="rectangle" style={{ backgroundImage: `url(${candidateImage})`, filter: 'grayscale(100%)' }}>
+      <div class="rectangle" style={{ backgroundImage: `url(${candidateImage})` }}>
+        <div class="image-candidate" style={{ backgroundImage: `url(${candidateImage})` }} />
         <div class="score">
           <p>{score} ЗАШКВАРІВ</p>
         </div>
@@ -156,10 +157,10 @@ function Candidates() {
               <div class="rating">РЕЙТИНГ ЗАШКВАРІВ</div>
               <div class="descriptionNews">Ця категорія сайту присвячена висвітленню депутатів та чиновників, які зрадили довіру народу та чинили злочини проти України.</div>
             </div>
-            <a class="latest-rating-right" href='/rating'>
+            <Link to="/persons" class="latest-rating-right">
               <div class="labelRating">Рейтинг зашкварів</div>
               <img class="arrowRightUpBlack" src={arrowRightUpBlack} />
-            </a>
+            </Link>
           </div>
         </div>
         <RepresentativeList />
@@ -174,9 +175,9 @@ function Candidates() {
             }}></div>
           </div>
         </div>
-        <div class="pagination">
-          <button onClick={prevPage} disabled={currentPage === 1}>&lt;</button>
-          <button onClick={nextPage} disabled={currentPage === totalPages}>&gt;</button>
+        <div class="pagination-btns">
+          <button class="btn" onClick={prevPage} disabled={currentPage === 1}>&lt;</button>
+          <button class="btn" onClick={nextPage} disabled={currentPage === totalPages}>&gt;</button>
         </div>
         <div style={{ height: `4px` }}></div>
       </div>
@@ -198,15 +199,15 @@ function Investigation() {
       </div>
 
       <div class="sectionInvestigation">
-        <a class="investigation-header" href="">
+        <Link to="/investigations" class="investigation-header">
           ЗАШКВАРИ
           <img class="arrowRightUp" src={arrowRightUp} />
-        </a>
+        </Link>
         <hr class="dividerInvestigation" />
-        <a class="investigation-header" href="">
+        <Link to="/persons" class="investigation-header">
           ОСОБИ
           <img class="arrowRightUp" src={arrowRightUp} />
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -220,10 +221,10 @@ function LatestInvestigations() {
           <div class="rating">ОСТАННІ ЗАШКВАРИ</div>
           <div class="descriptionNews">Оновлюваний перелік епізодів корупції, хабарництва, зловживання владою, некомпетентності та інших неприйнятних вчинків представників влади.</div>
         </div>
-        <a class="latest-rating-right">
+        <Link to="/investigations" class="latest-rating-right">
           <div class="labelRating">Всі Зашквари</div>
           <img class="arrowRightUpBlack" src={arrowRightUpBlack} />
-        </a>
+        </Link>
       </div>
       <div class="latest-investigation-flow">
         <div class="investigation-card">

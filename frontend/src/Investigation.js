@@ -143,10 +143,10 @@ function LatestInvestigations() {
                     <a class="investigation-card" href={"http://localhost:3000/investigation/" + investigation.id}>
                         <div class="investigation-card-content">
                             <div class="investigation-card-header">
-                                <img class="person-icon" src={personImage} />
+                                <img class="person-icon" src={personImage} alt="Person" />
                                 <div class="investigation-card-text">{investigation.investigatedPersons[0].name + " " + investigation.investigatedPersons[0].surname}</div>
                                 {investigation.investigatedPersons.length != 1 &&
-                                    <div class="investigation-card-text">+investigation.investigatedPersons.length}</div>
+                                    <div class="investigation-card-count">+investigation.investigatedPersons.length}</div>
                                 }
                             </div>
                             <span class="investigation-card-date">{formatDate(investigation.publishDate)}</span>

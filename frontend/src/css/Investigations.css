@@ -35,218 +35,11 @@ body {
     background-attachment: fixed
 }
 
-/* Title */
-
-.divTitle {
-    width: Hug (1, 567px)px;
-    height: Hug (200px)px;
-    gap: 40px;
-    opacity: 0px;
-}
-
-.title1 {
-    font-family: e-Ukraine Head;
-    font-size: 160px;
-    font-weight: 700;
-    line-height: 160px;
-    letter-spacing: 0.15000000596046448px;
-    text-align: left;
-    color: #E7E7E7;
-}
-
-.divTitle2 {
-    width: Hug (1, 027px)px;
-    height: Hug (200px)px;
-    padding: 20px 0px 0px 0px;
-    gap: 10px;
-    opacity: 0px;
-    background: #DE442C;
-}
-
-.title2 {
-    font-family: e-Ukraine Head;
-    font-size: 160px;
-    font-weight: 700;
-    line-height: 160px;
-    letter-spacing: 0.15000000596046448px;
-    text-align: left;
-    color: #E7E7E7;
-}
-
-h1 {
-    width: 1081.54px;
-    height: 96px;
-    gap: 0px;
-    opacity: 0px;
-
-    font-family: e-Ukraine Head;
-    font-size: 80px;
-    font-weight: 700;
-    line-height: 96px;
-    letter-spacing: 0.15000000596046448px;
-    text-align: left;
-
-    text-emphasis-color: #1F1F1F;
-
-}
-
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.representative-list {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 80px;
-    gap: 7%;
-}
-
-
-.representative-card {
-    width: 360px;
-    height: 580px;
-    gap: 0px;
-    opacity: 0px;
-    padding: 0px;
-    margin-top: 16px;
-    text-align: center;
-}
-
-.rectangle {
-    width: 100%;
-    height: 410px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    filter: grayscale(100%);
-}
-
-.image-candidate {
-    width: 100%;
-    height: 410px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    filter: grayscale(100%);
-}
-
-.rectangle:hover {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    filter: grayscale(0%);
-}
-
-.rectangle:hover .score {
-    background-color: #DE442C;
-    color: #EFF0F3;
-}
-
-.rectangle:hover .image-candidate {
-    filter: grayscale(0%);
-    animation: change-card-background 0.6s ease;
-    animation-fill-mode: forwards;
-    background-repeat: repeat;
-}
-
-
-@keyframes change-rectangle-background {
-    100% {
-        background-image: url('../resourse/images/card-rectangle.png');
-        color: #DE442C;
-
-    }
-}
-
-.info {
-    display: block;
-    color: white;
-    padding: 5px;
-    border-radius: 4px;
-}
-
-.name {
-    font-size: 18px;
-    color: #1F1F1F;
-    margin: 0;
-    font-family: e-Ukraine Head;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 43.2px;
-    letter-spacing: 0.15000000596046448px;
-    text-align: left;
-
-}
-
-.surname {
-    font-size: 18px;
-    color: #1F1F1F;
-    margin: 0;
-    text-align: left;
-    font-family: e-Ukraine Head;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 43.2px;
-    letter-spacing: 0.15000000596046448px;
-    text-align: left;
-}
-
-.party-card {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    margin: 0;
-}
-
-.party {
-    padding-left: 5px;
-    font-size: 14px;
-    color: #1F1F1F;
-    font-family: Arial;
-    font-weight: bolder;
-    font-style: normal;
-    margin-left: 100px;
-    margin: 0;
-    align-self: flex-start;
-}
-
-.photo {
-    width: 18px;
-    height: 18px;
-    gap: 0px;
-    border-radius: 50px;
-    opacity: 0px;
-}
-
-.score {
-    background: #1F1F1F;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    color: white;
-    text-align: start;
-    width: 89%;
-    width: 320px;
-    height: 40px;
-    padding: 10px 20px 10px 20px;
-    gap: 0px;
-    opacity: 0px;
-}
-
-.score p {
-    margin: 0;
-    font-weight: bold;
-}
-
 /* Pagination */
 
-.pagination-btns {
+.pagination {
     display: flex;
+    justify-content: left;
     align-items: flex-start;
     margin-top: 40px;
     gap: 0px;
@@ -261,7 +54,7 @@ header nav ul {
 }
 
 
-.btn {
+button {
     width: 230px;
     height: 80px;
     gap: 0px;
@@ -274,12 +67,12 @@ header nav ul {
     cursor: pointer;
 }
 
-.btn:disabled {
+button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
-.btn:hover {
+button:hover {
     background-color: #DE442C;
     cursor: pointer;
 }
@@ -362,9 +155,14 @@ header nav ul {
     color: #373838;
 }
 
-.rectangle:hover .arrow::before,
-.rectangle:hover .arrow::after {
-    background-color: #DE442C;
+.latest-rating-right:hover {
+    animation: block-orange 0.4s ease;
+    animation-fill-mode: forwards;
+}
+
+.latest-rating-right:hover .arrowRightUpBlack {
+    animation: invert 0.4s ease;
+    animation-fill-mode: forwards;
 }
 
 .divRating {
@@ -389,8 +187,8 @@ header nav ul {
 .container {
     width: 80%;
     margin: 0;
-    padding-top: 100px;
-    padding-bottom: 150px;
+    padding-top: 50px;
+    padding-bottom: 100px;
     padding-left: 10%;
     padding-right: 10%;
     display: inline-block;
@@ -407,9 +205,9 @@ header nav ul {
     margin-left: 20px;
 }
 
-.divider {
+.divider-latest-investigations-header {
     width: 99.5%;
-    margin-top: 65px;
+    margin-top: 15px;
     border: 3px solid #E7E7E7
 }
 
@@ -499,6 +297,17 @@ header nav ul {
     padding-right: 10%;
 }
 
+.latest-investigations-header {
+    font-family: e-Ukraine Head;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 96px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: center;
+    margin-top: 100px;
+    text-align: center;
+}
+
 .latest-investigation-left {
     width: 74%;
     margin-top: 60px;
@@ -569,18 +378,6 @@ header nav ul {
     animation-fill-mode: forwards;
 }
 
-@keyframes link-orange {
-    100% {
-        color: #DE442C;
-    }
-}
-
-@keyframes arrow-orange {
-    100% {
-        filter: invert(44%) sepia(74%) saturate(6206%) hue-rotate(350deg) brightness(95%) contrast(82%);
-    }
-}
-
 .sectionInvestigation h2 {
     font-size: 20px;
     font-weight: bold;
@@ -590,10 +387,9 @@ header nav ul {
 /* Last section */
 
 .latest-investigations-main {
-    padding-top: 0px;
+    padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 10%;
     padding-right: 10%;
-    background-image: url('../resourse/images/paper.png');
-    background-color: #EFF0F3;
+    background-color: #FFFFFF;
 }
