@@ -84,14 +84,70 @@ function Candidates() {
     {
       name: "Олена",
       surname: "Петренко",
+      score: 9,
+      party: "Голос України",
+      image: photo,
+      candidateImage: candidateImage
+    },
+    {
+      name: "Олена",
+      surname: "Петренко",
+      score: 9,
+      party: "Голос України",
+      image: photo,
+      candidateImage: candidateImage
+    },
+    {
+      name: "Олена",
+      surname: "Петренко",
+      score: 8,
+      party: "Голос України",
+      image: photo,
+      candidateImage: candidateImage
+    },
+    {
+      name: "Олена",
+      surname: "Петренко",
+      score: 6,
+      party: "Голос України",
+      image: photo,
+      candidateImage: candidateImage
+    },
+    {
+      name: "Олена",
+      surname: "Петренко",
       score: 5,
+      party: "Голос України",
+      image: photo,
+      candidateImage: candidateImage
+    },
+    {
+      name: "Олена",
+      surname: "Петренко",
+      score: 5,
+      party: "Голос України",
+      image: photo,
+      candidateImage: candidateImage
+    },
+    {
+      name: "Олена",
+      surname: "Петренко",
+      score: 2,
+      party: "Голос України",
+      image: photo,
+      candidateImage: candidateImage
+    },
+    {
+      name: "Олена",
+      surname: "Петренко",
+      score: 1,
       party: "Голос України",
       image: photo,
       candidateImage: candidateImage
     }
   ];
 
-  const itemsPerPage = 3;
+  const itemsPerPage = 12;
   const totalPages = Math.ceil(representatives.length / itemsPerPage);
   const [currentPage, setCurrentPage] = useState(1);
 

@@ -28,7 +28,7 @@ code {
   align-items: center;
   background-color: #1F1F1F;
   border-bottom: 1px solid #EFF0F31A;
-  height: 104px;
+  height: 90px;
   position: fixed;
   width: 100%;
   z-index: 1000;
@@ -45,6 +45,8 @@ code {
   align-items: center;
   height: 100%;
   width: 80%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 550;
 }
 
 .nav-left {

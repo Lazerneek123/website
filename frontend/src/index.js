@@ -36,7 +36,7 @@ function Header() {
 function Footer() {
   return (
     <footer class='footer'>
-      <p class='footerText'>© 2023 Сайт спротиву. Всі права захищені.</p>
+      <p class='footerText'>© 2024 Сайт спротиву. Всі права захищені.</p>
     </footer>
   );
 }

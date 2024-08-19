@@ -405,14 +405,14 @@ body {
 
 @keyframes change-card-background {
     100% {
-        background-image: url('../resourse/images/card-rectangle-transparent.png');
+        background-image: url('../resourse/images/card-rectangle.png');
         color: black;
     }
 }
 
 .investigation-card {
     text-decoration: none;
-    color: #FFFFFF;
+    color: #ffffff;
     margin-top: 15px;
     width: 29%;
     height: 300px;

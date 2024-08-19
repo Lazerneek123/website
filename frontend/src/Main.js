@@ -10,7 +10,7 @@ import arrowRightUp from './resourse/images/arrow-right-up.png';
 
 function Title() {
   return (
-    <div class="container">
+    <div class="containerMain">
       <div class="divheader1">
         <div class="divHeader">
           <div class="divHeaderTitle">
@@ -115,7 +115,6 @@ function Candidates() {
   const RepresentativeCard = ({ name, surname, score, party, image, candidateImage }) => (
     <div class="representative-card">
       <div class="rectangle" style={{ backgroundImage: `url(${candidateImage})` }}>
-        <div class="image-candidate" style={{ backgroundImage: `url(${candidateImage})` }} />
         <div class="score">
           <p>{score} ЗАШКВАРІВ</p>
         </div>
@@ -149,7 +148,7 @@ function Candidates() {
   );
 
   return (
-    <section class="news">
+    <div class="news">
       <div class="app">
         <div class="divRating">
           <div class="latest-rating-full-header">
@@ -181,7 +180,7 @@ function Candidates() {
         </div>
         <div style={{ height: `4px` }}></div>
       </div>
-    </section>
+    </div>
   );
 }
 

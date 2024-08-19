@@ -4,7 +4,6 @@ import './css/Investigation.css';
 import duct from './resourse/images/duct.png';
 import personImage from './resourse/images/candidate.jpg';
 import Pagination from './Pagination.js';
-import image from './resourse/images/poster.png';
 
 function Title() {
   return (
@@ -34,7 +33,7 @@ function Title() {
   );
 }
 
-const itemsPerPage = 2;
+const itemsPerPage = 12;
 
 function LatestInvestigations() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -52,6 +51,9 @@ function LatestInvestigations() {
     { id: 10, name: 'Maксим Петренко', date: '24 БЕР 2024', label: 'Незаконне збагачення політиків - це злочин проти народу: час покласти край!', points: '+3' },
     { id: 11, name: 'Maксим Петренко', date: '31 БЕР 2024', label: 'Незаконне збагачення політиків - це злочин проти народу: час покласти край!', points: '+1' },
     { id: 12, name: 'Maксим Петренко', date: '01 КВІ 2024', label: 'Незаконне збагачення політиків - це злочин проти народу: час покласти край!', points: '+3' },
+    { id: 13, name: 'Maксим Петренко', date: '01 КВІ 2024', label: 'Незаконне збагачення політиків - це злочин проти народу: час покласти край!', points: '+3' },
+    { id: 14, name: 'Maксим Петренко', date: '01 КВІ 2024', label: 'Незаконне збагачення політиків - це злочин проти народу: час покласти край!', points: '+1' },
+    { id: 15, name: 'Maксим Петренко', date: '01 КВІ 2024', label: 'Незаконне збагачення політиків - це злочин проти народу: час покласти край!', points: '+3' }
   ];
 
   const totalPages = Math.ceil(investigations.length / itemsPerPage);
