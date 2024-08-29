@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './css/Main.css';
 import './css/Investigation.css';
-import './css/Person.css';
+import './css/Persons.css';
 import candidateImage from './resourse/images/candidate.jpg';
 import photo from './resourse/images/photo.jpg';
 import duct from './resourse/images/duct.png';

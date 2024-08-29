@@ -1,0 +1,21 @@
+.app-person {
+    padding-left: 10%;
+    padding-right: 10%;
+    background: transparent;
+}
+
+.news-person {
+    padding-top: 0px;
+    padding-bottom: 30px;
+    background-image: url('../resourse/images/paper.png');
+    background-color: #FFFFFF;
+}
+
+.representative-list-person {
+    display: flex;
+    flex-wrap: wrap;
+    background: transparent;
+    gap: 7%;
+    margin-bottom: 0px;
+    padding-top: 50px;
+}

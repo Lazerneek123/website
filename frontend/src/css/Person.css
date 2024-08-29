@@ -4,13 +4,6 @@
     background: transparent;
 }
 
-.news-person {
-    padding-top: 0px;
-    padding-bottom: 30px;
-    background-image: url('../resourse/images/paper.png');
-    background-color: #FFFFFF;
-}
-
 .representative-list-person {
     display: flex;
     flex-wrap: wrap;
@@ -18,4 +11,153 @@
     gap: 7%;
     margin-bottom: 0px;
     padding-top: 50px;
+}
+
+.container-person {
+    width: 80%;
+    margin: 0;
+    padding-top: 180px;
+    padding-bottom: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+    opacity: 0px;
+    display: inline-block;
+    color: white;
+}
+
+.divheader1-person {
+    display: flex;
+    padding-top: -30px;
+    flex-direction: column;
+    align-self: center;
+}
+
+.h1-name {
+    width: 350px;
+    height: 200px;
+    font-family: e-Ukraine Head;
+    text-transform: uppercase;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 96px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+}
+
+.description-person {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 20px;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.masking {
+    width: 182px;
+    height: 182px;
+    position: absolute;
+    top: -70px;
+    left: -55px;
+    transform: rotate(-36.66deg);
+}
+
+.info-container {
+    width: 770px;
+    height: 611px;
+    background-image: url('../resourse/images/poster-person.png');
+    background-repeat: no-repeat;
+    color: #1F1F1F;
+    background-size: 100%;
+    background-position: center;
+    padding-left: 40px;
+}
+
+.info-container h1 {
+    margin-bottom: 20px;
+}
+
+.info-container p {
+    font-size: 1.5em;
+}
+
+.party-info {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.party {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 30.6px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+    margin-right: 10px;
+}
+
+.photo-party-person {
+    width: 18px;
+    height: 18px;
+    border-radius: 50px 50px 50px 50px;
+    opacity: 0px;
+    margin-left: 10px;
+}
+
+.party-card {
+    background: #E7E7E7;
+}
+
+.party-info span {
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+}
+
+.social-icons {
+    margin-top: 120px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.representative-card-person {
+    width: 400px;
+    height: 611px;
+    gap: 0px;
+    opacity: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.rectangle-person {
+    width: 425px;
+    height: 611px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    filter: grayscale(100%);
+    text-decoration: none;
+    color: #ffffff;
+    background-repeat: no-repeat;
+    transition: transform 0.4s ease;
+}
+
+.facebook-icon-person {
+    border: 20px #1F1F1F;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 30px;
+    height: 30px;
 }

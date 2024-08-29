@@ -6,6 +6,7 @@ import Main from './Main.js';
 import Investigation from './Investigation.js';
 import Investigations from './Investigations.js';
 import Persons from './Persons.js';
+import Person from './Person.js';
 import './css/index.css';
 
 function Header() {
@@ -52,6 +53,7 @@ root.render(
           <Route exact path="/investigation" component={Investigation} />
           <Route exact path="/investigations" component={Investigations} />
           <Route exact path="/persons" component={Persons} />
+          <Route exact path="/person" component={Person} />
         </Switch>
         <Footer />
       </Router>
