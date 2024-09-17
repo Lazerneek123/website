@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './css/Investigations.css';
 import './css/Investigation.css';
 import duct from './resourse/images/duct.png';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import personImage from './resourse/images/candidate.jpg';
 import Pagination from './Pagination.js';
 
@@ -64,7 +65,7 @@ function LatestInvestigations() {
     <div class="latest-investigations-main">
       <div class="latest-investigation-flow">
         {currentInvestigations.map(item => (
-          <div class="investigation-card" key={item.id}>
+          <Link class="investigation-card" to={{ pathname: "/investigation" }} key={item.id} >
             <div class="investigation-card-content">
               <div class="investigation-card-header">
                 <img class="person-icon" src={personImage} alt="Person" />
@@ -74,7 +75,7 @@ function LatestInvestigations() {
               <span class="investigation-card-date">{item.date}</span>
               <div class="investigation-card-label">{item.label}</div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <Pagination

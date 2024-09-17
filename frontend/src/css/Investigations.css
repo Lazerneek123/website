@@ -213,12 +213,14 @@ button:hover {
 
 .divHeaderTitle {
     display: flex;
+    margin-top: 120px;
     flex-direction: column;
     align-self: center;
 }
 
 .divheader1 {
     display: flex;
+    margin-right: 50px;
     flex-direction: column;
     align-self: center;
 }
@@ -299,19 +301,51 @@ button:hover {
 
 .latest-investigations-header {
     font-family: e-Ukraine Head;
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 700;
     line-height: 96px;
     letter-spacing: 0.15000000596046448px;
     text-align: center;
-    margin-top: 100px;
-    text-align: center;
+    color: #EFF0F3;
+    margin-top: 20px;
 }
 
-.latest-investigation-left {
+.latest-investigations-header-l {
+    font-family: e-Ukraine Head;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 96px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+    text-transform: uppercase;
+    color: #1F1F1F;
+    margin-top: 20px;
+}
+
+.latest-investigationss-left {
     width: 74%;
     margin-top: 60px;
     margin-bottom: 30px;
+}
+
+.latest-investigationss-right {
+    justify-content: center;
+    text-decoration: none;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    width: 260px;
+    color: #1F1F1F;
+
+}
+
+.latest-investigationss-right:hover {
+    animation: block-orange 0.4s ease;
+    animation-fill-mode: forwards;
+}
+
+.latest-investigations-description {
+    width: 70%;
 }
 
 .headerInvestigation {
@@ -387,7 +421,7 @@ button:hover {
 /* Last section */
 
 .latest-investigations-main {
-    padding-top: 10px;
+    padding-top: 30px;
     padding-bottom: 50px;
     padding-left: 10%;
     padding-right: 10%;

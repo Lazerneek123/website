@@ -57,11 +57,13 @@ body {
 }
 
 .divImage {
-    background-image: url('../resourse/images/poster.png');
+    background-image: url('../resourse/images/grunge.png');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
     position: relative;
+    background-size: 25%;
+    background-attachment: fixed
 }
 
 .divImage::before {
@@ -129,7 +131,7 @@ body {
 
 .date {
     font-family: 'e-Ukraine Head Light';
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 300;
     line-height: 23.8px;
     letter-spacing: 0.15000000596046448px;
@@ -169,6 +171,7 @@ body {
 }
 
 .sub-header {
+    margin-top: 10px;
     vertical-align: top;
     width: 240px;
     font-family: 'e-Ukraine Head';
@@ -189,6 +192,7 @@ body {
 }
 
 .person {
+    margin-top: 10px;
     text-decoration: none;
     color: #EFF0F3;
     display: flex;
@@ -315,6 +319,18 @@ body {
     background-color: #EFF0F3;
 }
 
+.latest-investigationss-description {
+    width: 80%;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.5;
+    color: #1F1F1F;
+}
+
 .latest-investigations-header {
     margin-bottom: 10px;
     font-family: Inter;
@@ -324,6 +340,7 @@ body {
     letter-spacing: 0.15000000596046448px;
     text-align: left;
     text-transform: uppercase;
+    color: #1F1F1F;
 }
 
 .latest-investigations-full-header {
@@ -357,7 +374,7 @@ body {
     display: flex;
     flex-direction: row;
     width: 131px;
-    color: black;
+    color: #1F1F1F;
 }
 
 .latest-investigations-right:hover {

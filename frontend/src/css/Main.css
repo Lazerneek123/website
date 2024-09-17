@@ -35,6 +35,14 @@ body {
     background-attachment: fixed
 }
 
+.divHeaderTitleMain {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 50px;
+    flex-direction: column;
+    align-self: center;
+}
+
 /* Title */
 
 .divTitle {
@@ -106,7 +114,7 @@ header nav ul {
 .latest-investigation-flow {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -1.3%;
+    margin-left: -0.6%;
     margin-bottom: 50px;
     gap: 0%;
 }
@@ -131,9 +139,20 @@ header nav ul {
     filter: grayscale(100%);
 }
 
-
 .rectangle {
-    width: 100%;
+    width: 360px;
+    height: 410px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    filter: grayscale(0%);
+    text-decoration: none;
+    color: #ffffff;
+    background-repeat: no-repeat;
+}
+
+.rectangle1 {
+    width: 360px;
     height: 410px;
     background-size: cover;
     background-position: center;
@@ -142,18 +161,48 @@ header nav ul {
     text-decoration: none;
     color: #ffffff;
     background-repeat: no-repeat;
-    transition: transform 0.4s ease;
 }
 
 .rectangle:hover {
-    animation: change-rectangle-background 0.4s ease, enlarge-rectangle 0.4s ease;
+    animation: change-rectangle-background 1.0s ease;
+    animation-fill-mode: forwards;
+    background-repeat: no-repeat;   
+    background-size: cover;  
+    width: 360px;
+    height: 410px;
+    filter: grayscale(0%);
+}
+
+.rectangle1:hover {
+    animation: change-rectangle-background1 1.0s ease;
+    animation-fill-mode: forwards;
+    background-repeat: no-repeat;   
+    background-size: cover;
     filter: grayscale(0%);
 }
 
 @keyframes change-rectangle-background {
     100% {
-        background-image: url('../resourse/images/card-rectangle.png');
+        background-image: url('../resourse/images/card-rectangle-transparent.png');
         color: #DE442C;
+        animation-fill-mode: forwards;
+        background-size: cover;
+        background-position: right;
+        width: 360px;
+        height: 410px;
+        
+    }
+}
+
+@keyframes change-rectangle-background1 {
+    100% {
+        color: #DE442C;
+        animation-fill-mode: forwards;
+        background-size: cover;
+       
+        width: 360px;
+        height: 410px;
+        
     }
 }
 
@@ -245,6 +294,8 @@ header nav ul {
     padding: 10px 20px 10px 20px;
     gap: 0px;
     opacity: 0px;
+    transition: background-color 0.5s ease;
+
 }
 
 .score p {
@@ -400,7 +451,7 @@ header nav ul {
     margin: 0;
     padding-top: 180px;
     padding-bottom: 150px;
-    padding-left: 10%;
+    padding-left: 8.5%;
     padding-right: 10%;
     display: inline-block;
     color: white;
@@ -428,7 +479,7 @@ header nav ul {
     align-self: center;
 }
 
-.divheader1 {
+.divheaderMain1 {
     display: flex;
     flex-direction: column;
     align-self: center;

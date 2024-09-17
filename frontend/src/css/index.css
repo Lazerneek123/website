@@ -133,6 +133,7 @@ code {
 
 .div-btn-back {
   width: 100%;
+  margin-left: 0px;
   display: flex;
   justify-content: center;
   align-items: center;

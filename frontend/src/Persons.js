@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './css/Main.css';
 import './css/Investigation.css';
 import './css/Persons.css';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import candidateImage from './resourse/images/candidate.jpg';
 import photo from './resourse/images/photo.jpg';
 import duct from './resourse/images/duct.png';
@@ -40,7 +41,9 @@ function Candidates() {
       score: 59,
       party: "Слуга народу",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олег Сидоренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олег",
@@ -48,7 +51,9 @@ function Candidates() {
       score: 45,
       party: "Партія справедливості",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олег Сидоренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олена",
@@ -56,7 +61,9 @@ function Candidates() {
       score: 28,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олена",
@@ -64,14 +71,18 @@ function Candidates() {
       score: 18,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     }, {
       name: "Олена",
       surname: "Петренко",
       score: 12,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олена",
@@ -79,7 +90,9 @@ function Candidates() {
       score: 10,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олена",
@@ -87,7 +100,9 @@ function Candidates() {
       score: 9,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олена",
@@ -95,7 +110,9 @@ function Candidates() {
       score: 9,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олена",
@@ -103,7 +120,9 @@ function Candidates() {
       score: 8,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олена",
@@ -111,7 +130,9 @@ function Candidates() {
       score: 6,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олена",
@@ -119,7 +140,9 @@ function Candidates() {
       score: 5,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олена",
@@ -127,7 +150,9 @@ function Candidates() {
       score: 5,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олена",
@@ -135,7 +160,9 @@ function Candidates() {
       score: 2,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     },
     {
       name: "Олена",
@@ -143,7 +170,9 @@ function Candidates() {
       score: 1,
       party: "Голос України",
       image: photo,
-      candidateImage: candidateImage
+      candidateImage: candidateImage,
+      description: "Олена Петренко народився в малому місті. Має вищу освіту з економіки та права. Працює у держслужбі, спеціалізується на фінансах. Швидко ріс у кар'єрі, ставши начальником відділу фінансового моніторингу.",
+      position: "Начальник відділу фінансового моніторингу"
     }
   ];
 
@@ -169,13 +198,17 @@ function Candidates() {
   const selectedItems = representatives.slice(startIndex, startIndex + itemsPerPage);
 
 
-  const RepresentativeCard = ({ name, surname, score, party, image, candidateImage }) => (
+  const RepresentativeCard = ({ name, surname, score, party, image, candidateImage, description, position }) => (
     <div class="representative-card">
-      <div class="rectangle" style={{ backgroundImage: `url(${candidateImage})`, filter: 'grayscale(100%)' }}>
-        <div class="score">
-          <p>{score} ЗАШКВАРІВ</p>
+      <Link to={{ pathname: "/person", state: { name, surname, score, party, image, candidateImage, description, position } }}>
+        <div class="rectangle1" style={{ backgroundImage: `url(${candidateImage})` }}>
+          <div class="rectangle" >
+            <div class="score">
+              <p>{score} ЗАШКВАРІВ</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </Link>
 
       <div class="info">
         <h3 class="name">{name}</h3>
@@ -199,6 +232,8 @@ function Candidates() {
           party={rep.party}
           image={rep.image}
           candidateImage={rep.candidateImage}
+          description={rep.description}
+          position={rep.position}
         />
       ))}
     </div>
